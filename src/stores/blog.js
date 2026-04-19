@@ -16,7 +16,7 @@ export const useBlogStore = defineStore('blogStore', {
     async getBlogs(page, category) {
         try {
             // const token = localStorage.getItem("token");
-            const response = await axios.get(`/api/news/?page=${page}&category=${category}`);
+            const response = await axios.get(`/api/news?page=${page}&category=${category}`);
             
             return response.data
         } catch (error) {
