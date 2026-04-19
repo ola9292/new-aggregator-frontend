@@ -1,6 +1,6 @@
 <script setup>
 import { useBlogStore } from '@/stores/blog';
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { useRoute } from 'vue-router';
 import news from '@/assets/news.jpg'
 import { useAuthStore } from '@/stores/auth';
@@ -26,6 +26,19 @@ const toggleLike = async (comment) => {
     targetComment.is_liked = result.is_liked
     targetComment.likes_count = result.likes_count
 }
+
+const truncatedContent = computed(() => {
+    if (!blog.value?.content) return ''
+
+    // Strip HTML tags
+    const text = blog.value.content.replace(/<[^>]*>/g, '')
+
+    // Limit to 200 words
+    const words = text.split(/\s+/).slice(0, 200).join(' ')
+
+    return words + '...'
+})
+
 
 onMounted( async () => {
     loading.value = true
@@ -92,8 +105,10 @@ onMounted( async () => {
 
                 <section 
                     class="prose prose-lg md:prose-xl max-w-none prose-headings:font-black prose-p:leading-relaxed prose-img:rounded-3xl"
-                    v-html="blog.content"
+                   
                 >
+                 {{ truncatedContent }}
+                 <a :href="blog.link" class="link link-primary" target="_blank">Read more</a>
                 </section>
                 <section class="mt-8 border-t border-base-200 pt-6">
                     <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
