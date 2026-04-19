@@ -1,39 +1,51 @@
-# new-aggregator-frontend
+# News Aggregator Frontend
 
-This template should help get you started developing with Vue 3 in Vite.
+A responsive, high-performance web interface built with Vue 3 for the News Aggregator API. This project focuses on reactive state management, persistent user sessions, and a modern utility-first styling approach.
 
-## Recommended IDE Setup
+---
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Features
 
-## Recommended Browser Setup
+- **Persistent Authentication:** Utilizes Pinia in conjunction with LocalStorage to ensure user sessions and access tokens persist across browser refreshes.
+- **Reactive UI Components:** Built with Vue 3 Composition API for modular, reusable, and reactive components.
+- **Modern UI/UX:** Styled with Tailwind CSS and DaisyUI, providing a clean, accessible, and mobile-responsive interface.
+- **State-Driven Interactions:** Real-time updates for likes and comment counts managed via global Pinia stores.
+- **Efficient API Integration:** Axios-based service layer for handling asynchronous requests to the Laravel backend.
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## Tech Stack
 
-## Customize configuration
+- **Framework:** Vue 3 (Composition API)
+- **State Management:** Pinia
+- **Styling:** Tailwind CSS & DaisyUI
+- **Routing:** Vue Router
+- **HTTP Client:** Axios
+- **Build Tool:** Vite
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+---
 
-## Project Setup
+## State Management Architecture
 
-```sh
-npm install
-```
+### Persistence Layer
 
-### Compile and Hot-Reload for Development
+Instead of relying solely on memory, the application implements a synchronization layer between Pinia and LocalStorage. This ensures that the user's authentication state and theme preferences are restored instantly upon page load, reducing the need for redundant API verification calls.
 
-```sh
-npm run dev
-```
+### Component Communication
 
-### Compile and Minify for Production
+The application uses a centralized store pattern. For example, the "Like" functionality updates a central store which then propagates changes to all relevant UI components (like counters and icons) across the page, ensuring data consistency without complex event emitting.
 
-```sh
-npm run build
-```
-# new-aggregator-frontend
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18.0 or higher)
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/yourusername/news-aggregator-frontend.git](https://github.com/yourusername/news-aggregator-frontend.git)
+   cd news-aggregator-frontend
+   ```
