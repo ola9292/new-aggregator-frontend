@@ -11,7 +11,7 @@ const formData = ref({
 
 const errors = ref(null)
 const handleLogin = async () => {
-    console.log(formData.value)
+    
     await authStore.login(formData.value)
  
 }

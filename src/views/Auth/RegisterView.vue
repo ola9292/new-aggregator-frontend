@@ -12,7 +12,7 @@ const formData = ref({
 })
 const errors = ref(null)
 const handleRegister = async () => {
-    console.log(formData.value)
+   
     await authStore.register(formData.value)
 }
 </script>

@@ -21,7 +21,7 @@ const submitComment = async (slug) => {
 const toggleLike = async (comment) => {
     //console.log(comment)
     const result = await blogStore.toggleLike(comment)
-    console.log(blog.value.comments)
+    
     const targetComment = blog.value.comments.find(c => c.id === comment.id)
     targetComment.is_liked = result.is_liked
     targetComment.likes_count = result.likes_count

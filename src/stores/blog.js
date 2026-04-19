@@ -39,7 +39,7 @@ export const useBlogStore = defineStore('blogStore', {
     },
     
     async addComment(slug, comment) {
-        //console.log(slug, comment)
+        
         const formData = {"message": comment}
         try {
             const token = localStorage.getItem("token");
@@ -48,7 +48,7 @@ export const useBlogStore = defineStore('blogStore', {
                     'Authorization': `Bearer ${token}`
                 }
             });
-            console.log(response.data)
+            
             return response.data.data
         } catch (error) {
             this.errors = error.response.data.errors
@@ -63,7 +63,7 @@ export const useBlogStore = defineStore('blogStore', {
                     'Authorization': `Bearer ${token}`
                 }
             });
-           console.log(response.data)
+          
             return response.data
         } catch (error) {
             this.errors = error.response.data.errors
@@ -78,8 +78,7 @@ export const useBlogStore = defineStore('blogStore', {
                     'Authorization': `Bearer ${token}`
                 }
             });
-            console.log('here')
-           console.log(response.data)
+          
             return response.data
         } catch (error) {
             this.errors = error.response.data.errors
