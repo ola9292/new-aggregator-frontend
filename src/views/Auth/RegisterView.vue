@@ -36,13 +36,13 @@ const handleRegister = async () => {
             </fieldset>
             <fieldset class="fieldset">
                 <legend class="fieldset-legend">Password</legend>
-                <input type="password" class="input w-full" placeholder="johndoe@example.com" v-model="formData.password"/>
+                <input type="password" class="input w-full" placeholder="******" v-model="formData.password"/>
                 <p v-if="authStore.errors?.password" class="label text-red-500">{{ authStore.errors.password[0] }}</p>
             </fieldset>
             <fieldset class="fieldset">
                 <legend class="fieldset-legend">Password Confirmation</legend>
                 <input type="password" class="input w-full" placeholder="******" v-model="formData.password_confirmation"/>
-                <p class="label">Optional</p>
+                
             </fieldset>
             <div>
                 <button type="submit" class="btn btn-neutral">Register</button>
