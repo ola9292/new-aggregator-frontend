@@ -26,22 +26,22 @@ const handleRegister = async () => {
         <form @submit.prevent="handleRegister">
             <fieldset class="fieldset">
                 <legend class="fieldset-legend">Name</legend>
-                <input type="text" class="input w-full" placeholder="Type here" v-model="formData.name"/>
+                <input type="text" class="input w-full" placeholder="John" v-model="formData.name"/>
                 <p v-if="authStore.errors?.name" class="label text-red-500">{{ authStore.errors.name[0] }}</p>
             </fieldset>
             <fieldset class="fieldset">
                 <legend class="fieldset-legend">Email</legend>
-                <input type="email" class="input w-full" placeholder="Type here" v-model="formData.email"/>
+                <input type="email" class="input w-full" placeholder="johndoe@example.com" v-model="formData.email"/>
                 <p v-if="authStore.errors?.email" class="label text-red-500">{{ authStore.errors.email[0] }}</p>
             </fieldset>
             <fieldset class="fieldset">
                 <legend class="fieldset-legend">Password</legend>
-                <input type="password" class="input w-full" placeholder="******" v-model="formData.password"/>
+                <input type="password" class="input w-full" placeholder="" v-model="formData.password"/>
                 <p v-if="authStore.errors?.password" class="label text-red-500">{{ authStore.errors.password[0] }}</p>
             </fieldset>
             <fieldset class="fieldset">
                 <legend class="fieldset-legend">Password Confirmation</legend>
-                <input type="password" class="input w-full" placeholder="******" v-model="formData.password_confirmation"/>
+                <input type="password" class="input w-full" placeholder="" v-model="formData.password_confirmation"/>
                 
             </fieldset>
             <div>

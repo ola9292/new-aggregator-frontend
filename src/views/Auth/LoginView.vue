@@ -27,12 +27,12 @@ const handleLogin = async () => {
            
             <fieldset class="fieldset">
                 <legend class="fieldset-legend">Email</legend>
-                <input type="email" class="input w-full" placeholder="Type here" v-model="formData.email"/>
+                <input type="email" class="input w-full" placeholder="johndoe@example.com" v-model="formData.email"/>
                 <p v-if="authStore.errors?.email" class="label">{{ authStore.errors.email[0] }}</p>
             </fieldset>
             <fieldset class="fieldset">
                 <legend class="fieldset-legend">Password</legend>
-                <input type="password" class="input w-full" placeholder="johndoe@example.com" v-model="formData.password"/>
+                <input type="password" class="input w-full" placeholder="" v-model="formData.password"/>
                 <p v-if="authStore.errors?.password" class="label">{{ authStore.errors.password[0] }}</p>
             </fieldset>
            
