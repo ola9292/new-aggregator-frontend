@@ -30,11 +30,18 @@ const toggleLike = async (comment) => {
 const truncatedContent = computed(() => {
     if (!blog.value?.content) return ''
 
-    // Strip HTML tags
-    const text = blog.value.content.replace(/<[^>]*>/g, '')
+    // Create a DOM element to parse HTML properly
+    const div = document.createElement('div')
+    div.innerHTML = blog.value.content
+
+    // Get clean text (this removes tags + decodes entities)
+    let text = div.textContent || div.innerText || ''
+
+    // Clean extra whitespace
+    text = text.replace(/\s+/g, ' ').trim()
 
     // Limit to 200 words
-    const words = text.split(/\s+/).slice(0, 200).join(' ')
+    const words = text.split(' ').slice(0, 200).join(' ')
 
     return words + '...'
 })
