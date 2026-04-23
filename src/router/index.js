@@ -17,7 +17,7 @@ const router = createRouter({
       path: '/blog/:slug',
       name: 'show',
       component: ShowView,
-      meta:{auth:true}
+      // meta:{auth:true}
     },
     {
       path: '/register',
