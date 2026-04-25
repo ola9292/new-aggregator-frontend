@@ -24,12 +24,11 @@ onMounted(() => {
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
                     </svg>
                   </label>
-                  <button class="btn btn-ghost text-xl"> <a href="/">Naija Palava</a> <p v-if="authStore.user">(welcome {{ authStore.user.name }})</p></button>
+                  <button class="btn btn-ghost text-xl"> <a href="/">Naija Palava</a></button>
                 </div>
           
                 <div class="navbar-end hidden lg:flex">
                   <ul class="menu menu-horizontal px-1">
-                    <!-- <li><a><RouterLink :to="{name: 'create'}">Create</RouterLink></a></li> -->
                     <li v-if="!authStore.user"><a><RouterLink :to="{name: 'login'}">Login</RouterLink></a></li>
                     <li v-if="!authStore.user"><a><RouterLink :to="{name: 'register'}">Register</RouterLink></a></li>
                     <li v-if="authStore.user">
@@ -70,6 +69,10 @@ onMounted(() => {
         </div>
             </div>
         </header>
+          <div class="bg-green-600 text-white w-[80%] lg:w-96 rounded-lg mx-auto py-2 px-2 mt-4">
+              <p v-if="authStore.user">Welcome, {{ authStore.user.name.toUpperCase() }}</p>
+              <p v-else>Welcome Guest</p>
+          </div>
         <RouterView />
   </div>
 
